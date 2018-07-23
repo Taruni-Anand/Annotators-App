@@ -3,18 +3,16 @@
         <title>Annotators Application</title>
     </head>
     <body>
-        <div>
-            <h1><a href="/">Annotator's Application</a></h1>
-        </div>
+      <div>
+  <h1><a href="/">Annotator's Application</a></h1>
+</div>
 
-        <div>
-            <h2><a href="">First Project</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        </div>
-
-        <div>
-            <h2><a href="">Second Project</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
-        </div>
+{% for project in projects %}
+  <div>
+      <p>Last modified: {{ project.last_modified_date }}</p>
+      <h1><a href="">{{ project.project_title }}</a></h1>
+      <p>{{ project.project_desc|linebreaksbr }}</p>
+  </div>
+{% endfor %}
     </body>
 </html>
