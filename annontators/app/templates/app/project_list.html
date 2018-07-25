@@ -1,18 +1,11 @@
-<html>
-    <head>
-        <title>Annotators Application</title>
-    </head>
-    <body>
-      <div>
-  <h1><a href="/">Annotator's Application</a></h1>
-</div>
+{% extends 'app/base.html' %}
 
-{% for project in projects %}
-  <div>
+{% block content %}
+  {% for project in projects %}
+    <div class="project">
       <p>Last modified: {{ project.last_modified_date }}</p>
-      <h1><a href="">{{ project.project_title }}</a></h1>
-      <p>{{ project.project_desc|linebreaksbr }}</p>
-  </div>
-{% endfor %}
-    </body>
-</html>
+      <h1><a href="{% url 'project_detail' pk=project.pk %}">{{ project.project_title }}</a></h1>
+
+    </div>
+  {% endfor %}
+{% endblock %}
