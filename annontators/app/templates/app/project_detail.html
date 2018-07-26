@@ -8,7 +8,9 @@
             </div>
         {% endif %}
         <a class="btn btn-default" href="{% url 'project_edit' pk=project.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+          <a class="btn btn-default" href="{% url 'project_add' pk=project.pk %}"><span class="glyphicon glyphicon-plus"></span></a>
         <h1>{{ project.project_title }}</h1>
           <p>{{ project.project_desc|linebreaksbr }}</p>
+
     </div>
 {% endblock %}

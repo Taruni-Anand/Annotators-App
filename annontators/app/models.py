@@ -2,6 +2,17 @@ from django.db import models
 from django.utils import timezone
 # Create your models here.
 
+def user_dir_path(instance, filename):
+    return 'user_{0}/{1}'.format(instance.user.id, filename)
+
+class Document(models.Model):
+    description = models.CharField(max_length=225, blank=True)
+    document = models.FileField(upload_to=user_dir_path)
+    uploaded_at = models.DateTimeField(auto_now_add = True)
+
+    def __str__(self):
+        return self.description
+
 class Project(models.Model):
     #   To get the user's name
     username = models.ForeignKey('auth.User', on_delete=models.CASCADE)
