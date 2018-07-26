@@ -10,7 +10,7 @@ def project_list(request):
 
 def project_detail(request, pk):
     project = get_object_or_404(Project, pk=pk)
-    return render(request, 'app/project_detail.html')
+    return render(request, 'app/project_detail.html', {'project':project})
 
 def project_new(request):
     if request.method == "POST":
